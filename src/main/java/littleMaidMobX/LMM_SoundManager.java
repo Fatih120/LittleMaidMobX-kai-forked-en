@@ -25,8 +25,12 @@ import java.util.zip.ZipInputStream;
 import mmmlibx.lib.FileManager;
 import mmmlibx.lib.MMMLib;
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class LMM_SoundManager {
+
+	private static final Logger LOGGER = LogManager.getLogger();
 
 	/** mods\littleMaidMobX を保持する */
 	private static File soundDir = null;
@@ -454,7 +458,7 @@ public class LMM_SoundManager {
 		catch (Exception e)
 		{
 			LMM_LittleMaidMobX.Debug("Error: Create Sound cfg failed.");
-			e.printStackTrace();
+			LOGGER.warn("Create Sound cfg failed.", e);
 		}
 		rebuildSoundPack();
 	}
@@ -642,7 +646,7 @@ public class LMM_SoundManager {
 			}
 		} catch (IOException e) {
 			LMM_LittleMaidMobX.Debug("Failed create Default Sound cfg(%s).", file1.getAbsolutePath());
-			e.printStackTrace();
+			LOGGER.warn("Failed create Default Sound cfg(%s).", e);
 			return false;
 		}
 		return true;
@@ -693,7 +697,7 @@ public class LMM_SoundManager {
 			LMM_LittleMaidMobX.Debug("Success create Sounds.json(%s).", file1.getAbsolutePath());
 		} catch (IOException e) {
 			LMM_LittleMaidMobX.Debug("Failed create Sounds.json(%s).", file1.getAbsolutePath());
-			e.printStackTrace();
+			LOGGER.warn("Failed create Sounds.json(%s).", e);
 		}
 	}
 
@@ -832,7 +836,7 @@ public class LMM_SoundManager {
 		}
 		catch (Exception exception)
 		{
-			exception.printStackTrace();
+			LOGGER.warn("searchSoundAndWriteFileZip error", exception);
 		}
 
 		return output;

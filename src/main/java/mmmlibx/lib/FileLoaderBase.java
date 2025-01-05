@@ -1,8 +1,12 @@
 package mmmlibx.lib;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -14,6 +18,8 @@ import java.util.zip.ZipInputStream;
  *
  */
 public abstract class FileLoaderBase {
+
+	private static final Logger LOGGER = LogManager.getLogger();
 
 	/**
 	 * 処理を実行
@@ -29,9 +35,9 @@ public abstract class FileLoaderBase {
 				decodeDir(lf, lf);
 			} else {
 				try {
-					preLoad(lf, ls, new FileInputStream(lf));
+					preLoad(lf, ls, Files.newInputStream(lf.toPath()));
 				} catch (Exception e) {
-					e.printStackTrace();
+					LOGGER.warn("execute error", e);
 				}
 			}
 		}
@@ -57,7 +63,7 @@ public abstract class FileLoaderBase {
 			lfis.close();
 			lzf.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOGGER.warn("decodeZip error", e);
 		}
 	}
 
@@ -71,9 +77,9 @@ public abstract class FileLoaderBase {
 				decodeDir(pBaseDir, lf);
 			} else {
 				try {
-					preLoad(lf, lf.getAbsolutePath().substring(pBaseDir.getAbsolutePath().length()), new FileInputStream(lf));
+					preLoad(lf, lf.getAbsolutePath().substring(pBaseDir.getAbsolutePath().length()), Files.newInputStream(lf.toPath()));
 				} catch (Exception e) {
-					e.printStackTrace();
+					LOGGER.warn("decodeDir error", e);
 				}
 			}
 		}

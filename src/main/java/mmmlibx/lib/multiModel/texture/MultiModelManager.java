@@ -16,9 +16,14 @@ import mmmlibx.lib.FileLoaderBase;
 import mmmlibx.lib.MMMLib;
 import mmmlibx.lib.multiModel.model.AbstractModelBase;
 import mmmlibx.lib.multiModel.model.mc162.ModelLittleMaid_Orign;
+import net.minecraft.launchwrapper.LaunchClassLoader;
 import net.minecraft.util.ResourceLocation;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MultiModelManager extends FileLoaderBase {
+
+	private static final Logger LOGGER = LogManager.getLogger();
 
 	/**
 	 * 古いテクスチャパックに対応するためのテーブル
@@ -99,8 +104,9 @@ public class MultiModelManager extends FileLoaderBase {
 			lcname = lcname.replace("/", ".");
 //			MMMLib.Debug("try MultiModelClass: %s", lcname);
 			try {
-				ClassLoader lcl = getClass().getClassLoader();
-				Class<?> lc = lcl.loadClass(lcname);
+				ClassLoader lcl = MMMLib.class.getClassLoader();
+				LOGGER.info("clsl: {}", lcl);
+				Class<?> lc = Class.forName(lcname, true, lcl);
 				if (AbstractModelBase.class.isAssignableFrom(lc) && !Modifier.isAbstract(lc.getModifiers())) {
 					Class<? extends AbstractModelBase> lca = (Class<? extends AbstractModelBase>)lc;
 					int lindex = lcname.lastIndexOf('_');
@@ -112,8 +118,9 @@ public class MultiModelManager extends FileLoaderBase {
 						return true;
 					}
 				}
-			} catch (Exception e) {
-				e.printStackTrace();
+
+			} catch (ClassNotFoundException e) {
+				LOGGER.warn("addModelClass error", e);
 			}
 		}
 		return false;
@@ -195,7 +202,7 @@ public class MultiModelManager extends FileLoaderBase {
 				return lamb;
 			}
 		} catch(Exception e) {
-			e.printStackTrace();
+			LOGGER.warn("getModelBase error", e);
 		}
 		return null;
 	}

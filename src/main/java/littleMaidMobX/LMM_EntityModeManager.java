@@ -50,6 +50,7 @@ public class LMM_EntityModeManager extends MMM_ManagerBase {
 			return true;
 		} catch (Exception e) {
 			LMM_LittleMaidMobX.Debug("Failed to load Entity Mode class %s!" + pclass.getName());
+
 			e.printStackTrace();
 		}
 

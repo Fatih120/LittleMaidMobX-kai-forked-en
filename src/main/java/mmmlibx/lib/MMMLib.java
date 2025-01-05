@@ -120,20 +120,19 @@ public class MMMLib {
 
 		// 旧モデル用変換開始
 		MMMTransformer.isEnable = true;
-		MultiModelManager.instance.execute();
+		//MultiModelManager.instance.execute();
 
 		// TODO test
-		List<File> llist = FileManager.getAllmodsFiles(getClass().getClassLoader(), true);
+		List<File> llist = FileManager.getAllmodsFiles(MMMLib.class.getClassLoader(), true);
 		for (File lf : llist) {
 			Debug("targetFiles: %s", lf.getAbsolutePath());
 		}
 
 
 		try {
-			Class<?> lc = ReflectionHelper.getClass(getClass().getClassLoader(), "net.minecraft.entity.EntityLivingBase");
+			Class<?> lc = ReflectionHelper.getClass(MMMLib.class.getClassLoader(), "net.minecraft.entity.EntityLivingBase");
 			Debug("test-getClass: %s", lc.toString());
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
 	}
