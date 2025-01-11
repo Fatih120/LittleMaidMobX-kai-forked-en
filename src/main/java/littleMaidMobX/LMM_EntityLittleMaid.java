@@ -978,7 +978,10 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 	public void writeEntityToNBT(NBTTagCompound par1nbtTagCompound) {
 		// データセーブ
 		super.writeEntityToNBT(par1nbtTagCompound);
-
+		if (this.getMaidMasterEntity() != null) {
+			par1nbtTagCompound.setString("OwnerUUID", getMaidMasterEntity().getUniqueID().toString());
+			par1nbtTagCompound.setString("MaidOwner", this.getMaidMaster());
+		}
 		par1nbtTagCompound.setTag("Inventory", maidInventory.writeToNBT(new NBTTagList()));
 		par1nbtTagCompound.setString("Mode", getMaidModeString(mstatWorkingInt));
 		par1nbtTagCompound.setBoolean("Wait", isMaidWait());
@@ -1018,6 +1021,10 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 		// データロード
 		super.readEntityFromNBT(par1nbtTagCompound);
 
+		if (!par1nbtTagCompound.hasKey("MaidOwner")){
+			String maidOwner = par1nbtTagCompound.getString("MaidOwner");
+			W_Common.setOwner(this, maidOwner);
+		}
 		if (par1nbtTagCompound.hasKey("ModeColor")) {
 			// 旧版からの継承
 			String s = par1nbtTagCompound.getString("Master");

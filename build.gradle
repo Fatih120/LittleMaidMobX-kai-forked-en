@@ -18,7 +18,7 @@ plugins{
 
 apply plugin: 'forge'
 
-version = "0.0.10"
+version = "1.6.1-forked-fix"
 group= "littleMaidMobX" // https://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "littleMaidMobX"
 
