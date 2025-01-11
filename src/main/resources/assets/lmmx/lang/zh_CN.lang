@@ -1,9 +1,7 @@
 entity.lmmx.LittleMaidX.name=女仆酱
 
 item.lmmx:spawn_lmmx_egg.name=女仆酱
-
-achievement.contract=签订契约了 我的主人
-achievement.contract.desc=捕获一只野生女仆
+item.lmmx:dismissal_notice_paper.name=解雇通知单
 
 littleMaidMob.mode.Torcher=照明模式
 littleMaidMob.mode.F-Torcher=自由-照明模式
@@ -20,14 +18,14 @@ littleMaidMob.mode.T-Blazingstar=巡逻-嗜血弓箭模式
 littleMaidMob.mode.D-Blazingstar=兴奋-嗜血弓箭模式
 
 littleMaidMob.mode.Playing=玩耍模式
-//littleMaidMob.mode.T-Playing=玩耍模式
-//littleMaidMob.mode.F-Playing=玩耍模式
-//littleMaidMob.mode.D-Playing=玩耍模式
+//littleMaidMob.mode.T-Playing=巡逻-玩耍模式
+//littleMaidMob.mode.F-Playing=自由 - 玩耍模式
+//littleMaidMob.mode.D-Playing=兴奋 - 玩耍模式
 
 littleMaidMob.mode.Pharmacist=酿造模式
 littleMaidMob.mode.T-Pharmacist=巡逻-酿造模式
-littleMaidMob.mode.F-Pharmacist=自由-酿造模式
-littleMaidMob.mode.F-Pharmacist=兴奋-酿造模式
+littleMaidMob.mode.F-Pharmacist=自由 - 酿造模式
+littleMaidMob.mode.D-Pharmacist=兴奋 - 酿造模式
 
 littleMaidMob.mode.Healer=奶妈模式
 littleMaidMob.mode.F-Healer=自由-奶妈模式
@@ -47,7 +45,6 @@ littleMaidMob.mode.F-Escorter=自由
 littleMaidMob.mode.D-Escorter=兴奋
 littleMaidMob.mode.T-Escorter=巡逻
 
-
 littleMaidMob.mode.Fencer=剑客模式
 littleMaidMob.mode.F-Fencer=自由-剑客模式
 littleMaidMob.mode.T-Fencer=巡逻-剑客模式
@@ -61,14 +58,23 @@ littleMaidMob.mode.Ripper=剪刀模式
 littleMaidMob.mode.F-Ripper=自由-剪刀模式
 littleMaidMob.mode.D-Ripper=兴奋-剪刀模式
 littleMaidMob.mode.T-Ripper=巡逻-剪刀模式
-littleMaidMob.mode.TNT-D=TNT-D
-littleMaidMob.mode.F-TNT-D=TNT-D
-littleMaidMob.mode.D-TNT-D=TNT-D
-littleMaidMob.mode.T-TNT-D=TNT-D
+littleMaidMob.mode.TNT-D=爆破模式
+littleMaidMob.mode.F-TNT-D=自由-爆破模式
+littleMaidMob.mode.D-TNT-D=兴奋-爆破模式
+littleMaidMob.mode.T-TNT-D=巡逻-爆破模式
 littleMaidMob.mode.Detonator=自爆模式
 littleMaidMob.mode.F-Detonator=自由-自爆模式
 littleMaidMob.mode.D-Detonator=兴奋-自爆模式
 littleMaidMob.mode.T-Detonator=巡逻-自爆模式
+
+littleMaidMob.mode.FreedomEX=高级自由模式
+littleMaidMob.mode.F-FreedomEX=高级自由模式
+littleMaidMob.mode.Miner=矿工模式
+littleMaidMob.mode.F-Miner=自由 - 矿工模式
+littleMaidMob.mode.Farmer=农夫模式
+littleMaidMob.mode.F-Farmer=自由 - 农夫模式
+littleMaidMob.mode.Lumberjack=伐木工模式
+littleMaidMob.mode.F-Lumberjack=自由 - 伐木工模式
 
 littleMaidMob.text.Health=健康值
 littleMaidMob.text.AP=装甲值
