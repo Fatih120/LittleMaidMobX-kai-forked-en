@@ -19,13 +19,13 @@ littleMaidMob.mode.D-Blazingstar=兴奋-嗜血弓箭模式
 
 littleMaidMob.mode.Playing=玩耍模式
 //littleMaidMob.mode.T-Playing=巡逻-玩耍模式
-//littleMaidMob.mode.F-Playing=自由 - 玩耍模式
-//littleMaidMob.mode.D-Playing=兴奋 - 玩耍模式
+//littleMaidMob.mode.F-Playing=自由-玩耍模式
+//littleMaidMob.mode.D-Playing=兴奋-玩耍模式
 
 littleMaidMob.mode.Pharmacist=酿造模式
 littleMaidMob.mode.T-Pharmacist=巡逻-酿造模式
-littleMaidMob.mode.F-Pharmacist=自由 - 酿造模式
-littleMaidMob.mode.D-Pharmacist=兴奋 - 酿造模式
+littleMaidMob.mode.F-Pharmacist=自由-酿造模式
+littleMaidMob.mode.D-Pharmacist=兴奋-酿造模式
 
 littleMaidMob.mode.Healer=奶妈模式
 littleMaidMob.mode.F-Healer=自由-奶妈模式
@@ -70,11 +70,11 @@ littleMaidMob.mode.T-Detonator=巡逻-自爆模式
 littleMaidMob.mode.FreedomEX=高级自由模式
 littleMaidMob.mode.F-FreedomEX=高级自由模式
 littleMaidMob.mode.Miner=矿工模式
-littleMaidMob.mode.F-Miner=自由 - 矿工模式
+littleMaidMob.mode.F-Miner=自由-矿工模式
 littleMaidMob.mode.Farmer=农夫模式
-littleMaidMob.mode.F-Farmer=自由 - 农夫模式
+littleMaidMob.mode.F-Farmer=自由-农夫模式
 littleMaidMob.mode.Lumberjack=伐木工模式
-littleMaidMob.mode.F-Lumberjack=自由 - 伐木工模式
+littleMaidMob.mode.F-Lumberjack=自由-伐木工模式
 
 littleMaidMob.text.Health=健康值
 littleMaidMob.text.AP=装甲值
