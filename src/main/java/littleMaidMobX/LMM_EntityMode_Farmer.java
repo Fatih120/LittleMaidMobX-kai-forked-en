@@ -286,7 +286,6 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 		return false;
 	}
 
-	@SuppressWarnings("rawtypes")
 	private boolean isBlockWatered(int x, int y, int z)
 	{
 		for (int l = x - 4; l <= x + 4; ++l)

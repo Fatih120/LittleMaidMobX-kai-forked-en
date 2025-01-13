@@ -2,6 +2,11 @@ entity.lmmx.LittleMaidX.name=女仆酱
 
 item.lmmx:spawn_lmmx_egg.name=女仆酱
 item.lmmx:dismissal_notice_paper.name=解雇通知单
+item.lmmx.milk_bucket=LittleMaid's Milk
+item.lmmx.milk_bucket_custom=%s's Milk
+
+achievement.contract=Realization
+achievement.contract.desc=Employ a LittleMaid
 
 littleMaidMob.mode.Torcher=照明模式
 littleMaidMob.mode.F-Torcher=自由-照明模式

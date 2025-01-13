@@ -65,12 +65,10 @@ public class LMM_EntityModeManager extends MMM_ManagerBase {
 		for (LMM_EntityModeBase lmode : maidModeList) {
 			try {
 				llist.add(lmode.getClass().getConstructor(LMM_EntityLittleMaid.class).newInstance(pentity));
-			} catch (Exception e) {
-				e.printStackTrace();
-			} catch (Error e) {
+			} catch (Exception | Error e) {
 				e.printStackTrace();
 			}
-		}
+        }
 		return llist;
 	}
 

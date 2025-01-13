@@ -73,12 +73,7 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.profiler.Profiler;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
@@ -1021,7 +1016,7 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 		// データロード
 		super.readEntityFromNBT(par1nbtTagCompound);
 
-		if (!par1nbtTagCompound.hasKey("MaidOwner")){
+		if (par1nbtTagCompound.hasKey("MaidOwner")){
 			String maidOwner = par1nbtTagCompound.getString("MaidOwner");
 			W_Common.setOwner(this, maidOwner);
 		}
@@ -2717,10 +2712,10 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 										MMM_Helper.decPlayerInventory(par1EntityPlayer, -1, 1);
 										ItemStack milkBucket = new ItemStack(Items.milk_bucket, 1);
 										if(this.hasCustomNameTag()) {
-											milkBucket.setStackDisplayName(this.getCustomNameTag() + "のミルク");
+											milkBucket.setStackDisplayName(StatCollector.translateToLocalFormatted("item.lmmx.milk_bucket_custom", this.getCustomNameTag()));
 										}
 										else {
-											milkBucket.setStackDisplayName("メイドさん印のミルク");
+											milkBucket.setStackDisplayName(StatCollector.translateToLocal("item.lmmx.milk_bucket"));
 										}
 										par1EntityPlayer.inventory.addItemStackToInventory(milkBucket);
 									}
@@ -2840,7 +2835,7 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 				setActiveModeClass(maidEntityModeList.get(li));
 			}
 		}
-		par1EntityPlayer.addChatMessage(new ChatComponentText(String.format("ID:%d",lflag == true ? 1 : 0)));
+		//par1EntityPlayer.addChatMessage(new ChatComponentText(String.format("ID:%d",lflag == true ? 1 : 0)));
 		if (!lflag) {
 			setMaidMode("Escorter");
 			setEquipItem(-1);
@@ -3388,20 +3383,22 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 
 	@Override
 	public void setTexturePackName(MMM_TextureBox[] pTextureBox) {
-		// Client
-		textureData.setTexturePackName(pTextureBox);
-		setTextureNames();
-		LMM_LittleMaidMobX.Debug("ID:%d, TextureModel:%s", getEntityId(), textureData.getTextureName(0));
-		// モデルの初期化
-		((MMM_TextureBox)textureData.textureBox[0]).models[0].setCapsValue(IModelCaps.caps_changeModel, maidCaps);
-		// スタビの付け替え
+		if (worldObj.isRemote) {
+			// Client
+			textureData.setTexturePackName(pTextureBox);
+			setTextureNames();
+			LMM_LittleMaidMobX.Debug("ID:%d, TextureModel:%s", getEntityId(), textureData.getTextureName(0));
+			// モデルの初期化
+			((MMM_TextureBox) textureData.textureBox[0]).models[0].setCapsValue(IModelCaps.caps_changeModel, maidCaps);
+			// スタビの付け替え
 //		for (Entry<String, MMM_EquippedStabilizer> le : pEntity.maidStabilizer.entrySet()) {
 //			if (le.getValue() != null) {
 //				le.getValue().updateEquippedPoint(pEntity.textureModel0);
 //			}
 //		}
-		maidSoundRate = LMM_SoundManager.getSoundRate(textureData.getTextureName(0), getColor());
+			maidSoundRate = LMM_SoundManager.getSoundRate(textureData.getTextureName(0), getColor());
 
+		}
 	}
 
 	/**

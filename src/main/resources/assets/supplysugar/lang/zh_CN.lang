@@ -1,1 +1,2 @@
 tile.SupplySugarMachineBlock.name=糖供给机
+tile.SupplySugarMachineBlock.supply_sugar_remaining=Sugar remaining: %d

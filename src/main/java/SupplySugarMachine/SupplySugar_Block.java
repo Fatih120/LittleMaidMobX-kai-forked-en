@@ -17,6 +17,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -206,7 +207,8 @@ public class SupplySugar_Block extends BlockContainer {
 			tileentitysupply.addSugarSize(count);
 	    	int size = tileentitysupply.getSugarSize();
 			if (!world.isRemote) {
-		    	player.addChatMessage(new ChatComponentText("砂糖の数： " + size));
+				player.addChatMessage(new ChatComponentTranslation("tile.SupplySugarMachineBlock.supply_sugar_remaining", size));
+		    	//player.addChatMessage(new ChatComponentText("砂糖の数： " + size));
 			}
 			if ((size > 0) && (tileentitysupply.IsOuputNoneSugarMessage)) {
 				tileentitysupply.IsOuputNoneSugarMessage = false;
