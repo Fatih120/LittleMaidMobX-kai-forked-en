@@ -1,0 +1,6 @@
+{
+  "package": "littleMaidMobX.mixin",
+  "refmap": "mixins.lmmx.refmap.json",
+  "minVersion": "0.7",
+  "compatibilityLevel": "JAVA_8"
+}

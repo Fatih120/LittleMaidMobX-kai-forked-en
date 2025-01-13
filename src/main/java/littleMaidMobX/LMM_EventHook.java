@@ -1,9 +1,9 @@
 package littleMaidMobX;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class LMM_EventHook
 {

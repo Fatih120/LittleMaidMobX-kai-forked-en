@@ -1,5 +1,14 @@
 package littleMaidMobX;
 
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import mmmlibx.lib.FileManager;
 import mmmlibx.lib.MMM_Config;
 import mmmlibx.lib.MMM_Helper;
@@ -15,15 +24,6 @@ import net.minecraftforge.common.AchievementPage;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import network.W_Network;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkRegistry;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(	modid = LMM_LittleMaidMobX.DOMAIN,
 		name  = LMM_LittleMaidMobX.DOMAIN)
@@ -206,7 +206,7 @@ public class LMM_LittleMaidMobX {
 
 		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST, new WeightedRandomChestContent(new ItemStack(Items.cake),1,1,10));
 		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST, new WeightedRandomChestContent(new ItemStack(spawnEgg),1,1,10));
-//		Debug("GUID-sneak: %s", LMM_EntityLittleMaid.maidUUIDSneak.toString());
+		//		Debug("GUID-sneak: %s", LMM_EntityLittleMaid.maidUUIDSneak.toString());
 	}
 
 	@EventHandler
