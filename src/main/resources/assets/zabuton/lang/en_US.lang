@@ -14,3 +14,21 @@ item.zabuton:zabuton.lightBlue.name=Zabuton Light_blue
 item.zabuton:zabuton.magenta.name=Zabuton Magenta
 item.zabuton:zabuton.orange.name=Zabuton Orange
 item.zabuton:zabuton.white.name=Zabuton White
+
+entity.zabuton:zabuton.black.name=Zabuton Black
+entity.zabuton:zabuton.red.name=Zabuton Red
+entity.zabuton:zabuton.green.name=Zabuton Green
+entity.zabuton:zabuton.brown.name=Zabuton Brown
+entity.zabuton:zabuton.blue.name=Zabuton Blue
+entity.zabuton:zabuton.purple.name=Zabuton Purple
+entity.zabuton:zabuton.cyan.name=Zabuton Cyan
+entity.zabuton:zabuton.silver.name=Zabuton Silver
+entity.zabuton:zabuton.gray.name=Zabuton Gray
+entity.zabuton:zabuton.pink.name=Zabuton Pink
+entity.zabuton:zabuton.lime.name=Zabuton Lime
+entity.zabuton:zabuton.yellow.name=Zabuton Yellow
+entity.zabuton:zabuton.lightBlue.name=Zabuton Light Blue
+entity.zabuton:zabuton.magenta.name=Zabuton Magenta
+entity.zabuton:zabuton.orange.name=Zabuton Orange
+entity.zabuton:zabuton.white.name=Zabuton White
+
