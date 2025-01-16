@@ -1,2 +1,2 @@
-tile.SupplySugarMachineBlock.name=糖供给机
-tile.SupplySugarMachineBlock.supply_sugar_remaining=Sugar remaining: %d
+tile.SupplySugarMachineBlock.name=糖供应机
+tile.SupplySugarMachineBlock.supply_sugar_remaining=剩余糖量：%d
