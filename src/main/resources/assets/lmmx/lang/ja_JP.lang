@@ -23,10 +23,10 @@ littleMaidMob.mode.F-Blazingstar=自由弓術士
 littleMaidMob.mode.T-Blazingstar=追跡弓術士
 littleMaidMob.mode.D-Blazingstar=次元弓術士
 
-littleMaidMob.mode.Playing=演奏
-//littleMaidMob.mode.T-Playing=演奏
-//littleMaidMob.mode.F-Playing=演奏
-//littleMaidMob.mode.D-Playing=演奏
+littleMaidMob.mode.Playing=遊ぶ
+//littleMaidMob.mode.T-Playing=遊ぶ
+//littleMaidMob.mode.F-Playing=遊ぶ
+//littleMaidMob.mode.D-Playing=遊ぶ
 
 littleMaidMob.mode.Pharmacist=薬剤師
 littleMaidMob.mode.T-Pharmacist=追跡薬剤師
