@@ -2,11 +2,12 @@ entity.lmmx.LittleMaidX.name=女仆酱
 
 item.lmmx:spawn_lmmx_egg.name=女仆酱
 item.lmmx:dismissal_notice_paper.name=解雇通知单
-item.lmmx.milk_bucket=LittleMaid's Milk
-item.lmmx.milk_bucket_custom=%s's Milk
+item.lmmx.milk_bucket=女仆酱的牛奶
+item.lmmx.milk_bucket_custom=%s的牛奶
 
-achievement.contract=Realization
-achievement.contract.desc=Employ a LittleMaid
+achievement.contract=契约达成
+achievement.contract.desc=雇佣一个女仆酱
+
 
 littleMaidMob.mode.Torcher=照明模式
 littleMaidMob.mode.F-Torcher=自由-照明模式
@@ -32,10 +33,10 @@ littleMaidMob.mode.T-Pharmacist=巡逻-酿造模式
 littleMaidMob.mode.F-Pharmacist=自由-酿造模式
 littleMaidMob.mode.D-Pharmacist=兴奋-酿造模式
 
-littleMaidMob.mode.Healer=奶妈模式
-littleMaidMob.mode.F-Healer=自由-奶妈模式
-littleMaidMob.mode.T-Healer=巡逻-奶妈模式
-littleMaidMob.mode.D-Healer=兴奋-奶妈模式
+littleMaidMob.mode.Healer=治疗模式
+littleMaidMob.mode.F-Healer=自由-治疗模式
+littleMaidMob.mode.T-Healer=巡逻-治疗模式
+littleMaidMob.mode.D-Healer=兴奋-治疗模式
 
 littleMaidMob.mode.Cooking=烧炼模式
 littleMaidMob.mode.T-Cooking=巡逻-烧炼模式

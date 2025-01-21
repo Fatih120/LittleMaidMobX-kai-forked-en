@@ -10,7 +10,11 @@ item.zabuton:zabuton.gray.name=Zabuton Gray
 item.zabuton:zabuton.pink.name=Zabuton Pink
 item.zabuton:zabuton.lime.name=Zabuton Lime
 item.zabuton:zabuton.yellow.name=Zabuton Yellow
-item.zabuton:zabuton.lightBlue.name=Zabuton Light_blue
+item.zabuton:zabuton.lightBlue.name=Zabuton Light Blue
 item.zabuton:zabuton.magenta.name=Zabuton Magenta
 item.zabuton:zabuton.orange.name=Zabuton Orange
 item.zabuton:zabuton.white.name=Zabuton White
+
+entity.zabuton.zabuton.name=Zabuton
+
+
