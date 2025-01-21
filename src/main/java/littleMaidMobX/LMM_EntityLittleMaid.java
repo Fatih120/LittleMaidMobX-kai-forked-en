@@ -1,49 +1,13 @@
 package littleMaidMobX;
 
-import static littleMaidMobX.LMM_Statics.*;
-
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.UUID;
-import mmmlibx.lib.ItemHelper;
-import mmmlibx.lib.ITextureEntity;
-import mmmlibx.lib.MMMLib;
-import mmmlibx.lib.MMM_Counter;
-import mmmlibx.lib.MMM_Helper;
-import mmmlibx.lib.MMM_TextureBox;
-import mmmlibx.lib.MMM_TextureBoxBase;
-import mmmlibx.lib.MMM_TextureBoxServer;
-import mmmlibx.lib.MMM_TextureData;
-import mmmlibx.lib.MMM_TextureManager;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import mmmlibx.lib.*;
 import mmmlibx.lib.multiModel.model.mc162.EquippedStabilizer;
 import mmmlibx.lib.multiModel.model.mc162.IModelCaps;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockDoublePlant;
-import net.minecraft.block.BlockLeaves;
-import net.minecraft.block.BlockPumpkin;
-import net.minecraft.block.BlockStainedGlass;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.EntityCreature;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAILookIdle;
-import net.minecraft.entity.ai.EntityAIOpenDoor;
-import net.minecraft.entity.ai.EntityAIPanic;
-import net.minecraft.entity.ai.EntityAIRestrictOpenDoor;
-import net.minecraft.entity.ai.EntityAISwimming;
-import net.minecraft.entity.ai.EntityAITasks;
+import net.minecraft.block.*;
+import net.minecraft.entity.*;
+import net.minecraft.entity.ai.*;
 import net.minecraft.entity.ai.EntityAITasks.EntityAITaskEntry;
-import net.minecraft.entity.ai.EntityAITempt;
-import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.EntityItem;
@@ -56,13 +20,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemAxe;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemPotion;
-import net.minecraft.item.ItemSkull;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.play.server.S04PacketEntityEquipment;
@@ -79,7 +37,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
 import wrapper.W_Common;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
+
+import java.lang.reflect.Method;
+import java.util.*;
+import java.util.Map.Entry;
+
+import static littleMaidMobX.LMM_Statics.*;
 
 public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEntity {
 
@@ -1754,7 +1717,15 @@ public class LMM_EntityLittleMaid extends EntityTameable implements ITextureEnti
 								// 特殊回収
 								((EntityArrow)entity).canBePickedUp = 1;
 							}
-							entity.onCollideWithPlayer(maidAvatar);
+							if (!(entity instanceof EntityItem)) {
+								entity.onCollideWithPlayer(maidAvatar);
+							}else {
+								EntityItem item = (EntityItem) entity;
+								if ((maidInventory.getFirstEmptyStack() != -1) ||
+										(maidInventory.getInventorySlotContainItem(item.getEntityItem().getItem()) != -1)){
+									entity.onCollideWithPlayer(maidAvatar);
+								}
+							}
 						}
 					}
 					// アイテムが一杯になっていてアイテムにタゲをとっている場合はタゲをクリア

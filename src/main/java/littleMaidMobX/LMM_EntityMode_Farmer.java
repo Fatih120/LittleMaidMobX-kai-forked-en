@@ -58,6 +58,7 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 
 	@Override
 	public boolean changeMode(EntityPlayer pentityplayer) {
+		if (!LMM_LittleMaidMobX.cfg_EnableFarmerMode) return false;
 		// TODO 自動生成されたメソッド・スタブ
 		ItemStack litemstack = owner.maidInventory.getStackInSlot(0);
 		if (litemstack != null) {

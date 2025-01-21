@@ -2,6 +2,7 @@ package littleMaidMobX;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.Items;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 
@@ -12,9 +13,12 @@ public class LMM_EventHook
 	{
 		if(event.entityPlayer instanceof LMM_EntityLittleMaidAvatar)
 		{
-			if(event.item!=null && LMM_LittleMaidMobX.isMaidIgnoreItem(event.item.getEntityItem()))
+			LMM_EntityLittleMaidAvatar avatar = (LMM_EntityLittleMaidAvatar) event.entityPlayer;
+			if(event.item!=null)
 			{
-				event.setCanceled(true);
+				if (LMM_LittleMaidMobX.isMaidIgnoreItem(event.item.getEntityItem())) {
+					event.setCanceled(true);
+				}
 			}
 		}
 	}

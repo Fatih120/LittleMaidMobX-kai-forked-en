@@ -3,6 +3,7 @@ package littleMaidMobX;
 import java.util.Iterator;
 import java.util.List;
 
+import cpw.mods.fml.common.Loader;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.entity.player.EntityPlayer;
 import mmmlibx.lib.MMM_Helper;
@@ -32,7 +33,7 @@ public class LMM_InventoryLittleMaid extends InventoryPlayer {
 	/**
 	 * 最大インベントリ数
 	 */
-	public static final int maxInventorySize = 20;
+	public static int maxInventorySize = 20;
 	/**
 	 * オーナー
 	 */
@@ -40,7 +41,7 @@ public class LMM_InventoryLittleMaid extends InventoryPlayer {
 	/**
 	 * スロット変更チェック用
 	 */
-	public ItemStack prevItems[];
+	public ItemStack[] prevItems;
 
 	public LMM_InventoryLittleMaid(LMM_EntityLittleMaid par1EntityLittleMaid) {
 		super(par1EntityLittleMaid.maidAvatar);

@@ -48,6 +48,7 @@ public class LMM_LittleMaidMobX {
 		"Dominant = Spawn Anywhere.",
 		"Aggressive = true: Will be hostile, false: Is a pacifist",
 		"IgnoreItemList = aaa, bbb, ccc: Items little maid to ignore",
+			"EnableFarmerMode = Enable/Disable farmer mode. if cause the lag in farmer mode, maybe you should set to false to fix this."
 //		"AchievementID = used Achievement index.(0 = Disable)",
 //		"UniqueEntityId = UniqueEntityId(0 is AutoAssigned. max 255)"
 	};
@@ -87,6 +88,7 @@ public class LMM_LittleMaidMobX {
 //	public static boolean AlphaBlend = true;
 //	@MLProp(info="true: Will be hostile, false: Is a pacifist")
 	public static boolean cfg_Aggressive = true;
+	public static boolean cfg_EnableFarmerMode = true;
 	public static String cfg_IgnoreItemList = "arsmagica2";
 
 	public static Achievement ac_Contract;

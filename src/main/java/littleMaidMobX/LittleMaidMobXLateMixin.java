@@ -2,11 +2,9 @@ package littleMaidMobX;
 
 import com.gtnewhorizon.gtnhmixins.ILateMixinLoader;
 import com.gtnewhorizon.gtnhmixins.LateMixin;
+import cpw.mods.fml.common.Loader;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @LateMixin
 public class LittleMaidMobXLateMixin implements ILateMixinLoader {
@@ -17,6 +15,11 @@ public class LittleMaidMobXLateMixin implements ILateMixinLoader {
 
     @Override
     public List<String> getMixins(Set<String> loadedMods) {
-        return Arrays.asList("EventShieldMixin");
+        List<String> mixinList = new ArrayList<>();
+        mixinList.add("EventShieldMixin");
+        if (Loader.isModLoaded("backhand")){
+            mixinList.add("LMM_InventoryLittleMaidMixin");
+        }
+        return mixinList;
     }
 }

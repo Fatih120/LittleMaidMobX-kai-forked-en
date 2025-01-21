@@ -18,7 +18,7 @@ plugins{
 
 apply plugin: 'forge'
 
-version = "1.6.2-forked-fix"
+version = "1.6.3-forked-fix"
 group= "littleMaidMobX" // https://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "littleMaidMobX"
 
@@ -58,6 +58,7 @@ repositories {
 dependencies {
     implementation("com.github.LegacyModdingMC.UniMixins:unimixins-all-1.7.10:0.1.19:dev")
     annotationProcessor("com.github.LegacyModdingMC.UniMixins:unimixins-all-1.7.10:0.1.19:dev")
+    compileOnly("com.github.GTNewHorizons:Backhand:1.6.5")
     compileOnly fileTree(dir: './modlibs', include: '*.jar')
 }
 
