@@ -1,5 +1,7 @@
 package littleMaidMobX;
 
+import com.google.common.collect.ImmutableList;
+import com.gtnewhorizon.gtnhlib.blockpos.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockFarmland;
@@ -20,6 +22,9 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.MovingObjectPosition.MovingObjectType;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.List;
 
 public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 
@@ -93,7 +98,7 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 		// モードに応じた識別判定、速度優先
 		switch (pMode) {
 			case mmode_Farmer :
-				for (li = 0; li < owner.maidInventory.maxInventorySize; li++) {
+				for (li = 0; li < LMM_InventoryLittleMaid.maxInventorySize; li++) {
 					litemstack = owner.maidInventory.getStackInSlot(li);
 					if (litemstack == null) continue;
 
@@ -153,14 +158,10 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 					if(isUnfarmedLand(px+ax,py,pz+az)) return false;
 				}
 			}
-
-			if(getHadSeedIndex()==-1)
-				return false;
-			return true;
-		}
-		if(isCropGrown(px,py,pz)) return true;
-		return false;
-	}
+            return getHadSeedIndex() != -1;
+        }
+        return isCropGrown(px, py, pz);
+    }
 
 	@Override
 	public boolean executeBlock(int pMode, int px, int py, int pz) {
@@ -231,7 +232,7 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 				if(!owner.isWorking()){
 					if(owner.aiCollectItem.shouldExecute()) owner.aiCollectItem.updateTask();
 				}
-			}catch(NullPointerException e){}
+			}catch(NullPointerException ignored){}
 			clearCount = 0;
 		}
 	}
@@ -248,7 +249,7 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 	}
 
 	private int getHadSeedIndex() {
-		for (int i = 0; i < owner.maidInventory.maxInventorySize; i++) {
+		for (int i = 0; i < LMM_InventoryLittleMaid.maxInventorySize; i++) {
 			ItemStack itemStack = owner.maidInventory.getStackInSlot(i);
 			if (itemStack == null) continue;
 
@@ -281,29 +282,29 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 	private boolean isCropGrown(int x, int y, int z){
 		Block b = owner.worldObj.getBlock(x,y,z);
 		if(b instanceof BlockCrops){
-			int age = (Integer) owner.worldObj.getBlockMetadata(x, y, z)/* + MathHelper.getRandomIntegerInRange(owner.worldObj.rand, 2, 5)*/;
-			if(age==7) return true;
+			int age = owner.worldObj.getBlockMetadata(x, y, z)/* + MathHelper.getRandomIntegerInRange(owner.worldObj.rand, 2, 5)*/;
+            return age == 7;
 		}
 		return false;
 	}
 
-	private boolean isBlockWatered(int x, int y, int z)
-	{
-		for (int l = x - 4; l <= x + 4; ++l)
-        {
-            for (int i1 = y; i1 <= y + 1; ++i1)
-            {
-                for (int j1 = z - 4; j1 <= z + 4; ++j1)
-                {
-                    if (owner.worldObj.getBlock(l, i1, j1).getMaterial() == Material.water)
-                    {
-                        return true;
-                    }
-                }
-            }
-        }
+	private boolean isBlockWatered(int xPos, int yPos, int zPos) {
 
-        return false;
+		/*for (int x = xPos - 4; x <= xPos + 4; ++x) {
+			for (int y = yPos; y <= yPos + 1; ++y) {
+				for (int z = zPos - 4; z <= zPos + 4; ++z) {
+					if (owner.worldObj.getBlock(x, y, z).getMaterial() == Material.water) {
+						return true;
+					}
+				}
+			}
+		}*/
+        for (BlockPos blockPos : BlockPos.getAllInBox(xPos - 4, yPos, zPos - 4, xPos + 4, yPos + 1, zPos + 4)) {
+			if (owner.worldObj.getBlock(blockPos.x, blockPos.y, blockPos.z).getMaterial() == Material.water) {
+				return true;
+			}
+        }
+		return false;
 	}
 
 	/**
@@ -322,13 +323,10 @@ public class LMM_EntityMode_Farmer extends LMM_EntityModeBase {
 		MovingObjectPosition movingobjectposition = pEntity.worldObj.func_147447_a(vec3do, vec3dt, do1, do2, false);
 
 		if (movingobjectposition != null && movingobjectposition.typeOfHit == MovingObjectType.BLOCK) {
-			if (movingobjectposition.blockX == (int)pX &&
-					movingobjectposition.blockY == (int)pY &&
-					movingobjectposition.blockZ == (int)pZ) {
-				return true;
-			}
-			return false;
-		}
+            return movingobjectposition.blockX == (int) pX &&
+                    movingobjectposition.blockY == (int) pY &&
+                    movingobjectposition.blockZ == (int) pZ;
+        }
 		return true;
 	}
 }

@@ -33,7 +33,7 @@ public class LMM_InventoryLittleMaid extends InventoryPlayer {
 	/**
 	 * 最大インベントリ数
 	 */
-	public static int maxInventorySize = 20;
+	public static final int maxInventorySize = 20;
 	/**
 	 * オーナー
 	 */

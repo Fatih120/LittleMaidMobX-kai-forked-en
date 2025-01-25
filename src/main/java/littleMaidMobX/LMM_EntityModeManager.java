@@ -17,7 +17,7 @@ public class LMM_EntityModeManager extends MMM_ManagerBase {
 	}
 
 	public static final String prefix = "EntityMode";
-	public static final List<LMM_EntityModeBase> maidModeList = new ArrayList<LMM_EntityModeBase>();
+	public static final List<LMM_EntityModeBase> maidModeList = new ArrayList<>();
 
 	public static void init() {
 		// 特定名称をプリフィックスに持つmodファイをを獲得
@@ -26,7 +26,7 @@ public class LMM_EntityModeManager extends MMM_ManagerBase {
 	
 	public static void loadEntityMode() {
 		(new LMM_EntityModeManager()).load();
-		Collections.sort(maidModeList, new EntityPriorityComparator());
+		maidModeList.sort(new EntityPriorityComparator());
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class LMM_EntityModeManager extends MMM_ManagerBase {
 	 * AI追加用のリストを獲得。 
 	 */
 	public static List<LMM_EntityModeBase> getModeList(LMM_EntityLittleMaid pentity) {
-		List<LMM_EntityModeBase> llist = new ArrayList<LMM_EntityModeBase>();
+		List<LMM_EntityModeBase> llist = new ArrayList<>();
 		for (LMM_EntityModeBase lmode : maidModeList) {
 			try {
 				llist.add(lmode.getClass().getConstructor(LMM_EntityLittleMaid.class).newInstance(pentity));
