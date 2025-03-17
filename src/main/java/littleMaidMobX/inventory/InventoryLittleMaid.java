@@ -1,5 +1,6 @@
 package littleMaidMobX.inventory;
 
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class InventoryLittleMaid extends InventoryPlayer {
     /**
      * 最大インベントリ数
      */
-    public static final int maxInventorySize = 20;
+    public final int maxInventorySize;
     public static final int IFF_SLOT = 1;
     /**
      * オーナー
@@ -41,7 +42,8 @@ public class InventoryLittleMaid extends InventoryPlayer {
         super(par1EntityLittleMaid.maidAvatar);
 
         entityLittleMaid = par1EntityLittleMaid;
-        mainInventory = new ItemStack[maxInventorySize];
+        mainInventory = new ItemStack[20];
+        maxInventorySize = mainInventory.length;
         armorInventory = new ItemStack[4];
         prevItems = new ItemStack[getSizeInventory()];
     }
@@ -60,7 +62,7 @@ public class InventoryLittleMaid extends InventoryPlayer {
                 continue;
             }
 
-            if (j >= 0 && j < mainInventory.length) {
+            if (j < mainInventory.length) {
                 mainInventory[j] = itemstack;
             }
 
@@ -489,8 +491,6 @@ public class InventoryLittleMaid extends InventoryPlayer {
     public void clearChanged() {
         // 強制リロード用、ダミーを登録して強制的に一周させる
         ItemStack lis = new ItemStack(Items.sugar);
-        for (int li = 0; li < prevItems.length; li++) {
-            prevItems[li] = lis;
-        }
+        Arrays.fill(prevItems, lis);
     }
 }

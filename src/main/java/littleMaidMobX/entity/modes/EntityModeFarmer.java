@@ -91,7 +91,7 @@ public class EntityModeFarmer extends EntityModeBase {
 
 		// モードに応じた識別判定、速度優先
         if (pMode == mmode_Farmer) {
-            for (li = 0; li < InventoryLittleMaid.maxInventorySize; li++) {
+            for (li = 0; li < owner.maidInventory.maxInventorySize; li++) {
                 litemstack = owner.maidInventory.getStackInSlot(li);
                 if (litemstack == null) continue;
 
@@ -239,7 +239,7 @@ public class EntityModeFarmer extends EntityModeBase {
 	}
 
 	private int getHadSeedIndex() {
-		for (int i = 0; i < InventoryLittleMaid.maxInventorySize; i++) {
+		for (int i = 0; i < owner.maidInventory.maxInventorySize; i++) {
 			ItemStack itemStack = owner.maidInventory.getStackInSlot(i);
 			if (itemStack == null) continue;
 

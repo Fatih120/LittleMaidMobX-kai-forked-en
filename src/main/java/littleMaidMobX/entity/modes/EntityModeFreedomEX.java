@@ -725,7 +725,7 @@ public class EntityModeFreedomEX extends EntityModeBasic {
 
 	private int countOfSugar(){
 		int count = 0;
-		for (int i = 0; i < InventoryLittleMaid.maxInventorySize; i++) {
+		for (int i = 0; i < owner.maidInventory.maxInventorySize; i++) {
 			ItemStack item = owner.maidInventory.getStackInSlot(i);
 			if (item != null && item.getItem() == Items.sugar) {
 				count += item.stackSize;
