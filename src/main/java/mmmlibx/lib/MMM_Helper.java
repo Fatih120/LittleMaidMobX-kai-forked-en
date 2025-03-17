@@ -98,7 +98,7 @@ public class MMM_Helper {
 	 * その際、UsingItemの更新処理が行われないため違うアイテムに持替えられたと判定される。
 	 * ここでは比較用に使われるスタックリストを強制的に書換える事により対応した。
 	 */
-	public static void updateCheckinghSlot(Entity pEntity, ItemStack pItemstack) {
+	public static void updateCheckingSlot(Entity pEntity, ItemStack pItemstack) {
 		if (pEntity instanceof EntityPlayerMP) {
 			// サーバー側でのみ処理
 			EntityPlayerMP lep = (EntityPlayerMP)pEntity;

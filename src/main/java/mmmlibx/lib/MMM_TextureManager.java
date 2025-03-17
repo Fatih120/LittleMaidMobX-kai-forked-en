@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import littleMaidMobX.LMM_OldZipTexturesLoader;
+import littleMaidMobX.client.resources.OldZipTexturesLoader;
 import mmmlibx.lib.multiModel.model.mc162.ModelMultiBase;
 import net.minecraft.client.renderer.entity.RenderBiped;
 import net.minecraft.entity.Entity;
@@ -72,24 +72,24 @@ public class MMM_TextureManager {
 	/**
 	 * ローカルで保持しているモデルのリスト
 	 */
-	protected Map<String, ModelMultiBase[]> modelMap = new TreeMap<String, ModelMultiBase[]>();
+	protected Map<String, ModelMultiBase[]> modelMap = new TreeMap<>();
 	/**
 	 * ローカルで保持しているテクスチャパック
 	 */
-	private List<MMM_TextureBox> textures = new ArrayList<MMM_TextureBox>();
+	private List<MMM_TextureBox> textures = new ArrayList<>();
 	/**
 	 * サーバー側での管理番号を識別するのに使う、クライアント用。
 	 */
-	public Map<MMM_TextureBox, Integer> textureServerIndex = new HashMap<MMM_TextureBox, Integer>();
+	public Map<MMM_TextureBox, Integer> textureServerIndex = new HashMap<>();
 	/**
 	 * サーバー・クライアント間でテクスチャパックの名称リストの同期を取るのに使う、サーバー用。
 	 */
-	public List<MMM_TextureBoxServer> textureServer = new ArrayList<MMM_TextureBoxServer>();
+	public List<MMM_TextureBoxServer> textureServer = new ArrayList<>();
 	/**
 	 * Entity毎にデフォルトテクスチャを参照。
 	 * 構築方法はEntityListを参照のこと。
 	 */
-	protected Map<Class, MMM_TextureBox> defaultTextures = new HashMap<Class, MMM_TextureBox>();
+	protected Map<Class, MMM_TextureBox> defaultTextures = new HashMap<>();
 
 	/**
 	 * クライアント側で使う
@@ -110,10 +110,10 @@ public class MMM_TextureManager {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	};
-	protected Map<ITextureEntity, int[]> stackGetTexturePack = new HashMap<ITextureEntity, int[]>();
-	protected Map<ITextureEntity, Object[]> stackSetTexturePack = new HashMap<ITextureEntity, Object[]>();
+	protected Map<ITextureEntity, int[]> stackGetTexturePack = new HashMap<>();
+	protected Map<ITextureEntity, Object[]> stackSetTexturePack = new HashMap<>();
 
-	protected List<String[]> searchPrefix = new ArrayList<String[]>();
+	protected List<String[]> searchPrefix = new ArrayList<>();
 
 
 
@@ -313,7 +313,7 @@ public class MMM_TextureManager {
 		lbox.addTexture(0x0c, "/assets/minecraft/textures/entity/steve.png");
 		if (armorFilenamePrefix != null && armorFilenamePrefix.length > 0) {
 			for (String ls : armorFilenamePrefix) {
-				Map<Integer, ResourceLocation> lmap = new HashMap<Integer, ResourceLocation>();
+				Map<Integer, ResourceLocation> lmap = new HashMap<>();
 				lmap.put(tx_armor1, new ResourceLocation(
 						(new StringBuilder()).append("textures/models/armor/").append(ls).append("_layer_2.png").toString()));
 				lmap.put(tx_armor2, new ResourceLocation(
@@ -621,7 +621,7 @@ public class MMM_TextureManager {
 						int i = s.indexOf(pSearch[1]);
 						if (i > -1) {
 							// 対象はテクスチャディレクトリ
-							LMM_OldZipTexturesLoader.keys.put(s.substring(i), file);
+							OldZipTexturesLoader.keys.put(s.substring(i), file);
 							addTextureName(s.substring(i), pSearch);
 //							addTextureName(s.substring(i).replace('\\', '/'));
 						}
@@ -740,7 +740,7 @@ public class MMM_TextureManager {
 			return null;
 		} else {
 			// 野生色があるものをリストアップ
-			List<MMM_TextureBoxServer> llist = new ArrayList<MMM_TextureBoxServer>();
+			List<MMM_TextureBoxServer> llist = new ArrayList<>();
 			for (MMM_TextureBoxServer lbox : textureServer) {
 				if (lbox.getWildColorBits() > 0) {
 					llist.add(lbox);

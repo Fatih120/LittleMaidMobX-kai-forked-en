@@ -24,7 +24,6 @@ import org.objectweb.asm.tree.*;
  */
 public class MMMTransformer implements IClassTransformer, Opcodes {
 	private static String packege = "mmmlibx/lib/multiModel/model/mc162/";
-	@SuppressWarnings("serial")
 	private static final Map<String, String> targets = new HashMap<String, String>() {
 		{
 			add("EquippedStabilizer");
@@ -51,8 +50,7 @@ public class MMMTransformer implements IClassTransformer, Opcodes {
 			add("ModelStabilizerBase");
 		}
 		private void add(String pName) {
-			String replaceName = pName;
-			put("MMM_" + pName, packege + replaceName);
+            put("MMM_" + pName, packege + pName);
 		}
 	};
 
@@ -87,7 +85,7 @@ public class MMMTransformer implements IClassTransformer, Opcodes {
 		if (basicClass != null && isEnable) {
 			return replacer(name, transformedName, basicClass);
 		}
-		return basicClass;
+		return null;
 	}
 
 	/**
@@ -171,7 +169,7 @@ public class MMMTransformer implements IClassTransformer, Opcodes {
 
 	private String checkMMM(String pText) {
 		for (Entry<String, String> le : targets.entrySet()) {
-			if (pText.indexOf(le.getKey()) > -1) {
+			if (pText.contains(le.getKey())) {
 				String result = pText.replace(le.getKey(), le.getValue());
 //				Debug("%d Hit and Replace: %s -> %s", debugOut, pText, result);
 				isChange = true;

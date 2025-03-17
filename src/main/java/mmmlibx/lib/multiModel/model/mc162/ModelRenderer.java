@@ -33,7 +33,7 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL11;
 
-import wrapper.W_Client;
+import littleMaidMobX.wrapper.W_Client;
 
 public class ModelRenderer {
 

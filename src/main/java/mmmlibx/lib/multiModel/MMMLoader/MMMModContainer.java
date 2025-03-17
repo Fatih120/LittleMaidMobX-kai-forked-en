@@ -1,6 +1,7 @@
 package mmmlibx.lib.multiModel.MMMLoader;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class MMMModContainer extends DummyModContainer {
 		lmeta.modId		= "OldModelLoader";
 		lmeta.name		= "OldModelLoader";
 		lmeta.version	= "1.0";
-		lmeta.authorList	= Arrays.asList("MMM");
+		lmeta.authorList	= Collections.singletonList("MMM");
 		lmeta.description	= "The MultiModel before 1.6.2 is read.";
 		lmeta.url			= "";
 		lmeta.credits		= "";

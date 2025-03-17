@@ -1,6 +1,6 @@
 package mmmlibx.lib;
 
-import littleMaidMobX.LMM_EntityLittleMaid;
+import littleMaidMobX.entity.EntityLittleMaid;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
@@ -8,7 +8,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class ItemHelper {
@@ -32,7 +31,7 @@ public class ItemHelper {
 		return isSugar(pItemstack.getItem());
 	}
 
-	public static boolean hasSugar(LMM_EntityLittleMaid maid){
+	public static boolean hasSugar(EntityLittleMaid maid){
 		boolean flag = false;
 		for(ItemStack stack: maid.maidInventory.mainInventory){
 			if(stack == null) continue;

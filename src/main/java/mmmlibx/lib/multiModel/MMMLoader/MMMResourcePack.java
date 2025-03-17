@@ -8,8 +8,8 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 
-import littleMaidMobX.LMM_LittleMaidMobX;
-import littleMaidMobX.LMM_SoundManager;
+import littleMaidMobX.LittleMaidMobX;
+import littleMaidMobX.client.audio.LittleMaidSoundManager;
 import mmmlibx.lib.MMMLib;
 import net.minecraft.client.resources.DefaultResourcePack;
 import net.minecraft.client.resources.IResourcePack;
@@ -45,12 +45,12 @@ public class MMMResourcePack implements IResourcePack {
 	}
 
 	private InputStream getResourceStream(ResourceLocation resource, boolean b) {
-		if(resource.getResourceDomain().equalsIgnoreCase(LMM_LittleMaidMobX.DOMAIN)) {
+		if(resource.getResourceDomain().equalsIgnoreCase(LittleMaidMobX.DOMAIN)) {
 			String path = resource.getResourcePath();
-			InputStream lis = MMMResourcePack.class.getResourceAsStream("/assets/" + LMM_LittleMaidMobX.DOMAIN + "/" + path);
+			InputStream lis = MMMResourcePack.class.getResourceAsStream("/assets/" + LittleMaidMobX.DOMAIN + "/" + path);
 
 			if (lis == null) {
-				lis = LMM_SoundManager.getResourceStream(resource);
+				lis = LittleMaidSoundManager.getResourceStream(resource);
 			}
 
 			MMMLib.Debug("getResource:"+b+":%s : %s", resource, lis);
@@ -66,7 +66,7 @@ public class MMMResourcePack implements IResourcePack {
 		return is != null;
 	}
 
-	public static final Set lmmxResourceDomains = ImmutableSet.of(LMM_LittleMaidMobX.DOMAIN);
+	public static final Set lmmxResourceDomains = ImmutableSet.of(LittleMaidMobX.DOMAIN);
 	@Override
 	@SuppressWarnings("rawtypes")
 	public Set getResourceDomains() {

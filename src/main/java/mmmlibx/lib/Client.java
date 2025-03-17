@@ -16,8 +16,8 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import network.W_Message;
-import network.W_Network;
+import littleMaidMobX.network.Message;
+import littleMaidMobX.network.Network;
 
 import org.lwjgl.opengl.GL11;
 
@@ -54,7 +54,7 @@ public class Client {
 		// GUIの表示を変えるには常時監視が必要？
 	}
 */
-	public static void clientCustomPayload(W_Message var2) {
+	public static void clientCustomPayload(Message var2) {
 		// クライアント側の特殊パケット受信動作
 		byte lmode = var2.data[0];
 		int leid = 0;
@@ -185,6 +185,6 @@ public class Client {
 	}
 
 	public static void sendToServer(byte[] ldata) {
-		W_Network.sendPacketToServer(1, ldata);
+		Network.sendPacketToServer(1, ldata);
 	}
 }

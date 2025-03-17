@@ -5,12 +5,11 @@ import java.util.List;
 
 import mmmlibx.lib.guns.GunsBase;
 import mmmlibx.lib.multiModel.MMMLoader.MMMTransformer;
-import mmmlibx.lib.multiModel.texture.MultiModelManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.config.Configuration;
-import network.W_Message;
-import network.W_Network;
+import littleMaidMobX.network.Message;
+import littleMaidMobX.network.Network;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -137,7 +136,7 @@ public class MMMLib {
 
 	}
 
-	public static void serverCustomPayload(EntityPlayer playerEntity, W_Message var2)
+	public static void serverCustomPayload(EntityPlayer playerEntity, Message var2)
 	{
 		// サーバ側の動作
 		byte lmode = var2.data[0];
@@ -169,6 +168,6 @@ public class MMMLib {
 
 	public static void sendToClient(EntityPlayer player, byte[] ldata)
 	{
-		W_Network.sendPacketToPlayer(1, player, ldata);
+		Network.sendPacketToPlayer(1, player, ldata);
 	}
 }

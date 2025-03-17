@@ -2,7 +2,7 @@ package mmmlibx.lib;
 
 import java.io.File;
 
-import littleMaidMobX.LMM_OldZipTexturesLoader;
+import littleMaidMobX.client.resources.OldZipTexturesLoader;
 
 public class MMM_ProxyClient extends MMM_ProxyCommon
 {
@@ -13,6 +13,6 @@ public class MMM_ProxyClient extends MMM_ProxyCommon
 
 	@Override
 	public void addTextureToOldZipLoader(String name, File file) {
-		LMM_OldZipTexturesLoader.keys.put(name, file);
+		OldZipTexturesLoader.keys.put(name, file);
 	}
 }

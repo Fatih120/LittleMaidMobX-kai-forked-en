@@ -1,7 +1,7 @@
 package littleMaidMobX.mixin;
 
 import com.meteor.extrabotany.common.event.EventShield;
-import littleMaidMobX.LMM_IEntityLittleMaidAvatarBase;
+import littleMaidMobX.entity.IEntityLittleMaidAvatarBase;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ public class EventShieldMixin {
             remap = false,
             cancellable = true)
     private void playerAttacked(LivingHurtEvent event, CallbackInfo ci){
-        if (event.entity instanceof LMM_IEntityLittleMaidAvatarBase){
+        if (event.entity instanceof IEntityLittleMaidAvatarBase){
             ci.cancel();
         }
     }
@@ -28,7 +28,7 @@ public class EventShieldMixin {
             remap = false,
             cancellable = true)
     private void entityConstructing(EntityEvent.EntityConstructing event, CallbackInfo ci){
-        if (event.entity instanceof LMM_IEntityLittleMaidAvatarBase){
+        if (event.entity instanceof IEntityLittleMaidAvatarBase){
             ci.cancel();
         }
     }

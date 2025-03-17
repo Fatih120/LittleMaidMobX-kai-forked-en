@@ -1,6 +1,6 @@
 package mmmlibx.lib;
 
-import littleMaidMobX.LMM_EntityLittleMaid;
+import littleMaidMobX.entity.EntityLittleMaid;
 import mmmlibx.lib.multiModel.model.mc162.IModelCaps;
 import mmmlibx.lib.multiModel.model.mc162.ModelMultiBase;
 import net.minecraft.entity.DataWatcher;
@@ -256,9 +256,9 @@ public class MMM_TextureData {
 		{
 			// サイズの変更
 	//		owner.setSize(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
-			if(owner instanceof LMM_EntityLittleMaid)
+			if(owner instanceof EntityLittleMaid)
 			{
-				((LMM_EntityLittleMaid)owner).setSize2(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
+				((EntityLittleMaid)owner).setSize2(textureBox[0].getWidth(entityCaps), textureBox[0].getHeight(entityCaps));
 			}
 			else if(owner instanceof MMM_EntitySelect)
 			{
