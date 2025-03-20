@@ -1,0 +1,3 @@
+[submodule "dependencies/ExtraBotany"]
+	path = dependencies/ExtraBotany
+	url = https://github.com/ExtraMeteorP/ExtraBotany.git
