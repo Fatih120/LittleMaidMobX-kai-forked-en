@@ -50,7 +50,7 @@ public class EntityModeTest extends EntityModeBase implements ICommand {
 		if (!isEnable) return;
 		
 		// 名前とかの表示用
-		List<String> llist = new ArrayList<String>();
+		List<String> llist = new ArrayList<>();
 		double ld;
 		
 		if (owner.maidDominantArm == 0) {

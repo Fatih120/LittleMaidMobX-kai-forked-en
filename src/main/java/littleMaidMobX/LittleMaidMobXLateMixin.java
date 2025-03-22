@@ -20,6 +20,7 @@ public class LittleMaidMobXLateMixin implements ILateMixinLoader {
         if (Loader.isModLoaded("backhand")){
             mixinList.add("InventoryLittleMaidMixin");
             mixinList.add("ContainerInventoryMixin");
+            mixinList.add("EntityLittleMaidMixin");
         }
         return mixinList;
     }

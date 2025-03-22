@@ -2207,7 +2207,7 @@ public class EntityLittleMaid extends EntityTameable implements ITextureEntity {
         if (pArm == maidDominantArm) {
             maidInventory.currentItem = pIndex;
         }
-        maidInventory.currentItem = pIndex;
+        //maidInventory.currentItem = pIndex;
         int li = mstatSwingStatus[pArm].index;
         if (li != pIndex) {
             if (li > -1) {
@@ -2236,15 +2236,13 @@ public class EntityLittleMaid extends EntityTameable implements ITextureEntity {
         try {
             Method me = is.getItem().getClass().getMethod("isWeaponReload", ItemStack.class, EntityPlayer.class);
             weaponReload = (Boolean) me.invoke(is.getItem(), is, maidAvatar);
-        } catch (NoSuchMethodException e) {
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
 
         try {
             Method me = is.getItem().getClass().getMethod("isWeaponFullAuto", ItemStack.class);
             weaponFullAuto = (Boolean) me.invoke(is.getItem(), is);
-        } catch (NoSuchMethodException e) {
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 

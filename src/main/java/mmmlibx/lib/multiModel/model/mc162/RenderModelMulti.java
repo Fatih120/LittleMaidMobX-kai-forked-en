@@ -46,7 +46,7 @@ public class RenderModelMulti extends RenderLiving {
 	}
 	@Override
 	protected int shouldRenderPass(EntityLivingBase par1EntityLiving, int par2, float par3) {
-		return showArmorParts((EntityLivingBase)par1EntityLiving, par2, par3);
+		return showArmorParts(par1EntityLiving, par2, par3);
 	}
 
 	@Override
@@ -127,15 +127,11 @@ public class RenderModelMulti extends RenderLiving {
 	}
 
 	@Override
-	protected void renderModel(EntityLivingBase par1EntityLiving, float par2,
+	protected void renderModel(EntityLivingBase base, float par2,
 			float par3, float par4, float par5, float par6, float par7) {
-		if (!par1EntityLiving.isInvisible()) {
-			modelMain.setArmorRendering(true);
-		} else {
-			modelMain.setArmorRendering(false);
-		}
+        modelMain.setArmorRendering(!base.isInvisible());
 		// アイテムのレンダリング位置を獲得するためrenderを呼ぶ必要がある
-		mainModel.render(par1EntityLiving, par2, par3, par4, par5, par6, par7);
+		mainModel.render(base, par2, par3, par4, par5, par6, par7);
 	}
 
 	@Override
