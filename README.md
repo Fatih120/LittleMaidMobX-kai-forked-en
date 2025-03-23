@@ -1,2 +1,25 @@
-Eclipseã‚Å‚Í‚Ç‚¤‚µ‚Ä‚àÀs‚·‚é‚±‚Æ‚ª‚Å‚«‚È‚©‚Á‚½‚Ì‚ÅAƒrƒ‹ƒh‚·‚éÛ‚ÍA“¯«‚Ì"build.bat"‚ğÀs‚µ‚Ä‚­‚¾‚³‚¢B
-"build/libs/"‚Éo—Í‚³‚ê‚½jar‚ğÀ‹@‚É‚ÄAŠm”F‚µ‚Ä‚­‚¾‚³‚¢B
+Preparation for IDEA:
+
+Clone Repo
+
+Do your workspace setup if needed, but IDEA should do it all for you
+
+Go to Settings > Plugins > (Gear) > Manage Plugin Repositories...
+
+Add `https://raw.githubusercontent.com/eigenraven/MinecraftDev/rfg/updates/updatePlugins-243.xml` (for 2024.3. other versions change the last digit)
+
+Close and install the Minecraft Development plugin at the bottom of the list
+
+Place unimixins and `ExtraBotany-1.7.10-r1.0-21` jar files in `/modlibs`
+
+Environment should be ready.
+
+___
+
+Eclipseä¸Šã§ã¯ã©ã†ã—ã¦ã‚‚å®Ÿè¡Œã™ã‚‹ã“ã¨ãŒã§ããªã‹ã£ãŸã®ã§ã€ãƒ“ãƒ«ãƒ‰ã™ã‚‹éš›ã¯ã€åŒæ¢±ã®"build.bat"ã‚’å®Ÿè¡Œã—ã¦ãã ã•ã„ã€‚
+"build/libs/"ã«å‡ºåŠ›ã•ã‚ŒãŸjarã‚’å®Ÿæ©Ÿã«ã¦ã€ç¢ºèªã—ã¦ãã ã•ã„ã€‚
+
+___
+
+Since it was not possible to run the program on Eclipse, please run the included â€œbuild.batâ€ to build the program.
+Check the jar output to â€œbuild/libs/â€ on the actual device.
