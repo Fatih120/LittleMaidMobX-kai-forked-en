@@ -576,6 +576,16 @@ public class LittleMaidSoundManager {
             if (file1.createNewFile()) {
                 BufferedWriter bwriter = new BufferedWriter(new FileWriter(file1));
 
+                // Write cfg info header
+                bwriter.write("# This is the template cfg files for voices for maids.\n" +
+                        "# You can use this file or copy it as \"littleMaidMob.cfg\".\n" +
+                        "# Declare the voice lines for maids. \"null\" or empty means no voice.\n" +
+                        "# You can use mob sounds. For example, \"minecraft:mob.ghast.scream\". This goes for other mod sounds.\n" +
+                        "# However, to make custom voice packs, use \"sounds.json\" to populate the \"sounds\", and place\n" +
+                        "# the ogg voice files inside another \"littleMaidMob\" folder. Then, use \"littleMaidMob\" as a prefix\n" +
+                        "# (ex.  se_attack=littleMaidMob.attack)\n\n");
+
+                // Write each EnumSound entry
                 for (EnumSound eslm : EnumSound.values()) {
                     writeBuffer(bwriter, eslm);
                 }
