@@ -34,7 +34,7 @@ public class SupplySugar_Block extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(CreativeTabs.tabTools);
         setBlockName("SupplySugarMachineBlock");/*システム名の設定*/
-        //setBlockTextureName("freedommod:sugarsupplymachine_horizontal");/*ブロックのテクスチャの指定(複数指定の場合は消してください)*/
+        setBlockTextureName("supplysugar:supplysugarmachine_vertical");/*ブロックのテクスチャの指定(複数指定の場合は消してください)*/
         setHardness(5.0F);/*硬さ*/
 		this.setHarvestLevel("pickaxe", 1);/*回収するのに必要なツール*/
         setResistance(100000.0F);/*爆破耐性*/

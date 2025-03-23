@@ -1,6 +1,5 @@
 buildscript {
     repositories {
-        mavenCentral()
         maven { url "https://maven.minecraftforge.net" }
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
@@ -32,14 +31,16 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 minecraft {
-    version = "1.7.10-10.13.4.1481-1.7.10"
+    version = "1.7.10-10.13.4.1614-1.7.10"
     runDir = "run"
 
     runClient {
+		args = ["--tweakClass", "org.spongepowered.asm.launch.MixinTweaker", "--mixin", "mixins.lmmx.late"]
         jvmArgs = ['-Dfml.coreMods.load=mmmlibx.lib.multiModel.MMMLoader.MMMCoremod']
     }
 
     runServer {
+		args = ["--tweakClass", "org.spongepowered.asm.launch.MixinTweaker", "--mixin", "mixins.lmmx.late"]
         jvmArgs = ['-Dfml.coreMods.load=mmmlibx.lib.multiModel.MMMLoader.MMMCoremod']
     }
 
